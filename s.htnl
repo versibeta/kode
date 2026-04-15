@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Surat Pernyataan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    font-family: "Times New Roman", serif;
+    line-height: 1.6;
+    margin: 40px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+
+h2 {
+    text-align: left;
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+p {
+    margin: 0;
+    text-align: left;
+}
+
+.content p {
+    margin-bottom: 10px;
+}
+
+.signature {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+}
+
+.signature-right {
+    width: 300px;
+    text-align: left;
+}
+
+/* Area tanda tangan + materai */
+.ttd-area {
+    position: relative;
+    height: 100px;
+    margin: 10px 0;
+}
+
+/* gambar tanda tangan */
+.ttd {
+    height: 80px;
+    position: absolute;
+    right: 30px;
+    bottom: 25px;
+}
+
+/* materai */
+.materai {
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    width: 100px;
+    opacity: 0.9;
+}
+
+.no-print {
+    margin-bottom: 20px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    body { margin: 20px; }
+
+    .signature {
+        display: block;
+    }
+
+    .signature-right {
+        width: 100%;
+    }
+}
+
+.btn-upload {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.btn-upload:hover {
+    background: #555;
+}
+
+/* Print */
+@media print {
+    .no-print { display: none; }
+    body { margin: 2cm; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- Upload (tidak ikut print) -->
+<div class="no-print">
+    <label><strong>Upload Tanda Tangan:</strong></label><br>
+    <label for="uploadTTD" class="btn-upload">Ambil Gambar</label>
+    <input type="file" id="uploadTTD" accept="image/*" hidden>
+    <br><br>
+    <button onclick="window.print()">Print / Save PDF</button>
+</div>
+
+<h2>SURAT PERNYATAAN</h2>
+
+<div class="content">
+    <p>Saya yang bertanda tangan di bawah ini:</p><br>
+
+    <p>
+        Nama: Benny Suryono<br>
+        Alamat: Bogor
+    </p><br>
+
+    <p>
+        Dengan ini menyatakan bahwa saya menyanggupi untuk membayar cicilan setiap bulan sebesar 
+        <strong>Rp750.000,-</strong>.
+    </p>
+
+    <p>
+        Pembayaran akan dilakukan setiap bulan sampai lunas atas pembelian laptop seharga 
+        <strong>Rp12.299.000,-</strong>.
+    </p>
+
+    <p>
+        Spesifikasi:<br>
+        LENOVO IDEAPAD SLIM 3 14ARP10<br>
+        RYZEN 7 7735HS 16GB 512GB SSD
+    </p>
+
+    <p>
+        Demikian pernyataan ini dibuat dengan sebenar-benarnya.
+    </p>
+</div>
+
+<!-- Tanda tangan langsung di bawah pernyataan -->
+<div class="signature">
+    <div class="signature-right">
+
+        <p>Bogor, 15 April 2026</p>
+        <p>Yang menyatakan,</p>
+
+        <div class="ttd-area">
+            <!-- Materai -->
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Meterai_10000_Indonesia.png" 
+              class="materai">
+
+            <!-- TTD upload -->
+            <img id="ttdPreview" class="ttd">
+        </div>
+
+        <p><strong>( Benny Suryono )</strong></p>
+
+    </div>
+</div>
+
+</div>
+
+<script>
+document.getElementById("uploadTTD").addEventListener("change", function(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function() {
+        document.getElementById("ttdPreview").src = reader.result;
+    };
+    reader.readAsDataURL(file);
+});
+</script>
+
+</body>
+</html>
