@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Laundry System Dashboard</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f2f2f2;
+}
+
+/* HEADER */
+.header {
+    background: #28a745;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* NAV */
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.nav button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background: white;
+    border-radius: 5px;
+    flex: 1;
+    min-width: 100px;
+}
+
+.nav button.active {
+    background: #28a745;
+    color: white;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 10px;
+}
+
+/* CARD */
+.card {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.card.active {
+    display: block;
+}
+
+/* EDITABLE */
+.edit {
+    border-bottom: 1px dashed #999;
+    padding: 2px 4px;
+    display: inline-block;
+    min-width: 120px;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 6px;
+}
+
+/* BUTTON */
+.print-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    width: 100%;
+    max-width: 200px;
+}
+
+/* PRINT */
+@media print {
+    .nav, .header, .print-btn {
+        display: none;
+    }
+    body {
+        background: white;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h3>Laundry System Dashboard</h3>
+<p>Form Order • Invoice • Surat Jalan</p>
+</div>
+
+<div class="nav">
+<button class="active" onclick="show('order', this)">Form Order</button>
+<button onclick="show('invoice', this)">Invoice</button>
+<button onclick="show('sj', this)">Surat Jalan</button>
+</div>
+
+<div class="container">
+
+<!-- ================= FORM ORDER ================= -->
+<div id="order" class="card active">
+
+<h3>Form Order Laundry</h3>
+
+<p>Nama: <span class="edit" contenteditable="true">Pelanggan</span></p>
+<p>No HP: <span class="edit" contenteditable="true">08xxxx</span></p>
+<p>Alamat: <span class="edit" contenteditable="true">Alamat</span></p>
+
+<p>Tanggal Masuk: <span class="edit" contenteditable="true">22-04-2026</span></p>
+<p>Estimasi Selesai: <span class="edit" contenteditable="true">2-3 hari</span></p>
+
+<p>Catatan: <span class="edit" contenteditable="true">-</span></p>
+
+<button class="print-btn" onclick="window.print()">Print Form</button>
+
+</div>
+
+<!-- ================= INVOICE ================= -->
+<div id="invoice" class="card">
+
+<h3>Invoice Laundry</h3>
+
+<p>No Invoice: <span class="edit" contenteditable="true">INV-001</span></p>
+
+<table>
+<tr>
+<th>Jasa</th>
+<th>Qty</th>
+<th>Harga</th>
+</tr>
+
+<tr>
+<td contenteditable="true">Cuci Kiloan</td>
+<td contenteditable="true">1</td>
+<td contenteditable="true">7000</td>
+</tr>
+
+<tr>
+<td contenteditable="true">Setrika</td>
+<td contenteditable="true">1</td>
+<td contenteditable="true">5000</td>
+</tr>
+
+</table>
+
+<p>Total: <span class="edit" contenteditable="true">12000</span></p>
+
+<p>Status: <span class="edit" contenteditable="true">Proses / Selesai</span></p>
+
+<button class="print-btn" onclick="window.print()">Print Invoice</button>
+
+</div>
+
+<!-- ================= SURAT JALAN ================= -->
+<div id="sj" class="card">
+
+<h3>Surat Jalan Laundry</h3>
+
+<p>Pengirim: <span class="edit" contenteditable="true">Laundry</span></p>
+<p>Penerima: <span class="edit" contenteditable="true">Pelanggan</span></p>
+
+<p>Alamat: <span class="edit" contenteditable="true">Alamat tujuan</span></p>
+
+<table>
+<tr>
+<th>Item</th>
+<th>Qty</th>
+</tr>
+
+<tr>
+<td contenteditable="true">Paket Laundry</td>
+<td contenteditable="true">1</td>
+</tr>
+
+</table>
+
+<p>Keterangan: <span class="edit" contenteditable="true">-</span></p>
+
+<button class="print-btn" onclick="window.print()">Print Surat</button>
+
+</div>
+
+</div>
+
+<script>
+function show(id, btn) {
+    let cards = document.querySelectorAll(".card");
+    let buttons = document.querySelectorAll(".nav button");
+
+    cards.forEach(c => c.classList.remove("active"));
+    buttons.forEach(b => b.classList.remove("active"));
+
+    document.getElementById(id).classList.add("active");
+    btn.classList.add("active");
+}
+</script>
+
+</body>
+</html>
