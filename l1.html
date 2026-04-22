@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Laundry Auto Form to Invoice</title>
+
+<style>
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #f2f2f2;
+}
+
+.header {
+    background: #28a745;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 10px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+}
+
+/* BUTTON */
+button {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.gen {
+    background: #007bff;
+    color: white;
+}
+
+.print {
+    background: #28a745;
+    color: white;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 6px;
+}
+
+/* PRINT */
+@media print {
+    button, .form-section {
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h3>Laundry Auto System</h3>
+<p>Form → Invoice Otomatis</p>
+</div>
+
+<div class="container">
+
+<!-- ================= FORM ================= -->
+<div class="card form-section">
+
+<h3>Form Order Laundry</h3>
+
+<input id="nama" placeholder="Nama Pelanggan">
+<input id="hp" placeholder="No HP">
+<input id="alamat" placeholder="Alamat">
+
+<input id="layanan" placeholder="Layanan (Cuci / Setrika / Kiloan)">
+<input id="qty" placeholder="Qty (kg/item)">
+<input id="harga" placeholder="Harga">
+
+<button class="gen" onclick="generate()">Generate Invoice</button>
+
+</div>
+
+<!-- ================= INVOICE ================= -->
+<div class="card">
+
+<h3>Invoice Laundry</h3>
+
+<p>No: <span id="inv_no">INV-001</span></p>
+
+<hr>
+
+<p>Nama: <span id="out_nama"></span></p>
+<p>No HP: <span id="out_hp"></span></p>
+<p>Alamat: <span id="out_alamat"></span></p>
+
+<table>
+<tr>
+<th>Layanan</th>
+<th>Qty</th>
+<th>Harga</th>
+</tr>
+
+<tr>
+<td id="out_layanan"></td>
+<td id="out_qty"></td>
+<td id="out_harga"></td>
+</tr>
+</table>
+
+<br>
+
+<p><b>Total:</b> <span id="total"></span></p>
+
+<button class="print" onclick="window.print()">Print / Save PDF</button>
+
+</div>
+
+</div>
+
+<script>
+function generate() {
+    let nama = document.getElementById("nama").value;
+    let hp = document.getElementById("hp").value;
+    let alamat = document.getElementById("alamat").value;
+
+    let layanan = document.getElementById("layanan").value;
+    let qty = document.getElementById("qty").value;
+    let harga = document.getElementById("harga").value;
+
+    let total = parseInt(qty || 0) * parseInt(harga || 0);
+
+    // isi invoice
+    document.getElementById("out_nama").innerText = nama;
+    document.getElementById("out_hp").innerText = hp;
+    document.getElementById("out_alamat").innerText = alamat;
+
+    document.getElementById("out_layanan").innerText = layanan;
+    document.getElementById("out_qty").innerText = qty;
+    document.getElementById("out_harga").innerText = harga;
+
+    document.getElementById("total").innerText = total;
+
+    // simpan sementara (optional)
+    localStorage.setItem("last_invoice", JSON.stringify({
+        nama, hp, alamat, layanan, qty, harga, total
+    }));
+}
+
+// auto load terakhir
+window.onload = function() {
+    let data = localStorage.getItem("last_invoice");
+    if (data) {
+        let d = JSON.parse(data);
+
+        document.getElementById("nama").value = d.nama;
+        document.getElementById("hp").value = d.hp;
+        document.getElementById("alamat").value = d.alamat;
+        document.getElementById("layanan").value = d.layanan;
+        document.getElementById("qty").value = d.qty;
+        document.getElementById("harga").value = d.harga;
+    }
+}
+</script>
+
+</body>
+</html>
