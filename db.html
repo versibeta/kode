@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard Dokumen Digital</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f2f2f2;
+}
+
+/* HEADER */
+.header {
+    background: #2c7be5;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 10px;
+}
+
+/* NAV */
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.nav button {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    background: white;
+    border-radius: 5px;
+}
+
+.nav button.active {
+    background: #2c7be5;
+    color: white;
+}
+
+/* TEMPLATE BOX */
+.template {
+    display: none;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.template.active {
+    display: block;
+}
+
+/* EDITABLE */
+.edit {
+    border-bottom: 1px dashed #999;
+    padding: 2px 4px;
+    display: inline-block;
+    min-width: 100px;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 6px;
+}
+
+/* BUTTON */
+.print-btn {
+    margin-top: 10px;
+    padding: 8px;
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* PRINT */
+@media print {
+    .nav, .header, .print-btn {
+        display: none;
+    }
+    body {
+        background: white;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h3>Dashboard Dokumen Digital</h3>
+<p>CV • Surat Jalan • Invoice</p>
+</div>
+
+<div class="container">
+
+<!-- NAVIGATION -->
+<div class="nav">
+<button class="active" onclick="show('cv', this)">CV</button>
+<button onclick="show('sj', this)">Surat Jalan</button>
+<button onclick="show('inv', this)">Invoice</button>
+</div>
+
+<!-- ================= CV ================= -->
+<div id="cv" class="template active">
+
+<h3>CV Sederhana</h3>
+
+<p>Nama: <span class="edit" contenteditable="true">Nama Anda</span></p>
+<p>Alamat: <span class="edit" contenteditable="true">Alamat</span></p>
+<p>Pengalaman: <span class="edit" contenteditable="true">Tulis pengalaman</span></p>
+
+<button class="print-btn" onclick="window.print()">Print CV</button>
+
+</div>
+
+<!-- ================= SURAT JALAN ================= -->
+<div id="sj" class="template">
+
+<h3>Surat Jalan</h3>
+
+<p>Nomor: <span class="edit" contenteditable="true">001/SJ</span></p>
+
+<p>Pengirim: <span class="edit" contenteditable="true">Nama</span></p>
+<p>Penerima: <span class="edit" contenteditable="true">Nama Penerima</span></p>
+
+<table>
+<tr>
+<th>Barang</th>
+<th>Qty</th>
+</tr>
+<tr>
+<td contenteditable="true">Barang 1</td>
+<td contenteditable="true">1</td>
+</tr>
+</table>
+
+<button class="print-btn" onclick="window.print()">Print Surat Jalan</button>
+
+</div>
+
+<!-- ================= INVOICE ================= -->
+<div id="inv" class="template">
+
+<h3>Invoice</h3>
+
+<p>Nomor: <span class="edit" contenteditable="true">INV-001</span></p>
+
+<table>
+<tr>
+<th>Item</th>
+<th>Qty</th>
+<th>Harga</th>
+</tr>
+
+<tr>
+<td contenteditable="true">Jasa 1</td>
+<td contenteditable="true">1</td>
+<td contenteditable="true">100000</td>
+</tr>
+
+<tr>
+<td contenteditable="true">Jasa 2</td>
+<td contenteditable="true">1</td>
+<td contenteditable="true">50000</td>
+</tr>
+</table>
+
+<p>Total: <span class="edit" contenteditable="true">150000</span></p>
+
+<button class="print-btn" onclick="window.print()">Print Invoice</button>
+
+</div>
+
+</div>
+
+<script>
+function show(id, btn) {
+    let tabs = document.querySelectorAll(".template");
+    let buttons = document.querySelectorAll(".nav button");
+
+    tabs.forEach(t => t.classList.remove("active"));
+    buttons.forEach(b => b.classList.remove("active"));
+
+    document.getElementById(id).classList.add("active");
+    btn.classList.add("active");
+}
+</script>
+
+</body>
+</html>
