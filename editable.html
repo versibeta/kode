@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+
+    .field {
+      border-bottom: 1px dashed #999;
+      padding: 4px;
+      min-width: 200px;
+      display: inline-block;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h2>CV Sederhana</h2>
+
+<p>
+Nama: 
+<span class="field" contenteditable="true" onblur="saveData('nama', this.innerText)">Tulis nama</span>
+</p>
+
+<p>
+Alamat: 
+<span class="field" contenteditable="true" onblur="saveData('alamat', this.innerText)">Tulis alamat</span>
+</p>
+
+<p>
+Pengalaman: 
+<span class="field" contenteditable="true" onblur="saveData('pengalaman', this.innerText)">Tulis pengalaman</span>
+</p>
+
+<script>
+function saveData(key, value) {
+    // auto-save ke memory browser (tanpa database)
+    localStorage.setItem(key, value);
+    console.log(key + " saved: " + value);
+}
+
+// load kembali saat halaman dibuka
+window.onload = function() {
+    document.querySelectorAll(".field").forEach(el => {
+        let key = el.getAttribute("onblur")?.match(/'(.+?)'/)?.[1];
+        if (key) {
+            let saved = localStorage.getItem(key);
+            if (saved) el.innerText = saved;
+        }
+    });
+}
+</script>
+
+</body>
+</html>
