@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Surat Jalan Editable</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background: #f0f0f0;
+}
+
+.container {
+    background: white;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* HEADER */
+h2 {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+/* EDITABLE FIELD */
+.edit {
+    border-bottom: 1px dashed #999;
+    padding: 2px 4px;
+    display: inline-block;
+    min-width: 120px;
+}
+
+/* FLEX RESPONSIVE */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.col {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* TABLE RESPONSIVE */
+.table-wrap {
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background: #f5f5f5;
+}
+
+/* BUTTON */
+button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 200px;
+    cursor: pointer;
+    background: #2c7be5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* PRINT */
+@media print {
+    button {
+        display: none;
+    }
+    body {
+        background: white;
+    }
+    .container {
+        box-shadow: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>SURAT JALAN</h2>
+
+<p style="text-align:center;">
+Nomor: <span class="edit" contenteditable="true">001/SJ/2026</span>
+</p>
+
+<hr>
+
+<div class="row">
+
+<div class="col">
+<p>Nama Pengirim:<br>
+<span class="edit" contenteditable="true">Nama Pengirim</span></p>
+
+<p>Jabatan:<br>
+<span class="edit" contenteditable="true">Owner / Admin</span></p>
+</div>
+
+<div class="col">
+<p>Perusahaan:<br>
+<span class="edit" contenteditable="true">Nama Toko / Usaha</span></p>
+
+<p>Alamat:<br>
+<span class="edit" contenteditable="true">Alamat Lengkap</span></p>
+</div>
+
+</div>
+
+<hr>
+
+<p><b>Kepada:</b></p>
+
+<p>Nama Penerima:<br>
+<span class="edit" contenteditable="true">Nama Penerima</span></p>
+
+<p>Alamat Tujuan:<br>
+<span class="edit" contenteditable="true">Alamat Tujuan</span></p>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Barang</th>
+<th>Jumlah</th>
+<th>Keterangan</th>
+</tr>
+
+<tr>
+<td contenteditable="true">Barang 1</td>
+<td contenteditable="true">1</td>
+<td contenteditable="true">-</td>
+</tr>
+
+<tr>
+<td contenteditable="true">Barang 2</td>
+<td contenteditable="true">1</td>
+<td contenteditable="true">-</td>
+</tr>
+
+<tr>
+<td contenteditable="true">Barang 3</td>
+<td contenteditable="true">1</td>
+<td contenteditable="true">-</td>
+</tr>
+
+</table>
+</div>
+
+<br>
+
+<p>Keterangan:<br>
+<span class="edit" contenteditable="true">Barang dikirim dalam kondisi baik</span></p>
+
+<br>
+
+<div style="text-align:right;">
+[Tempat], <span class="edit" contenteditable="true">Tanggal</span>
+</div>
+
+<br><br>
+
+<div style="text-align:right;">
+Pengirim<br><br><br>
+<span class="edit" contenteditable="true">Nama Pengirim</span>
+</div>
+
+<button onclick="window.print()">🖨 Print / Save PDF</button>
+
+</div>
+
+</body>
+</html>
