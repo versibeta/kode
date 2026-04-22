@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Invoice Editable</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* HEADER */
+h2 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.sub {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+/* EDITABLE */
+.edit {
+    border-bottom: 1px dashed #999;
+    padding: 2px 4px;
+    display: inline-block;
+    min-width: 120px;
+}
+
+/* FLEX */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.col {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* TABLE */
+.table-wrap {
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+th {
+    background: #f0f0f0;
+}
+
+/* TOTAL */
+.total {
+    text-align: right;
+    margin-top: 10px;
+}
+
+/* BUTTON */
+button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    max-width: 200px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* PRINT */
+@media print {
+    button {
+        display: none;
+    }
+    body {
+        background: white;
+    }
+    .container {
+        box-shadow: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>INVOICE</h2>
+<p class="sub">Nomor: <span class="edit" contenteditable="true">INV-001</span></p>
+
+<hr>
+
+<div class="row">
+
+<div class="col">
+<p><b>Penjual</b><br>
+<span class="edit" contenteditable="true">Nama Toko / Usaha</span><br>
+<span class="edit" contenteditable="true">Alamat Penjual</span></p>
+</div>
+
+<div class="col">
+<p><b>Pembeli</b><br>
+<span class="edit" contenteditable="true">Nama Pembeli</span><br>
+<span class="edit" contenteditable="true">Alamat Pembeli</span></p>
+</div>
+
+</div>
+
+<hr>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Barang / Jasa</th>
+<th>Qty</th>
+<th>Harga</th>
+<th>Total</th>
+</tr>
+
+<tr>
+<td contenteditable="true">Jasa / Barang 1</td>
+<td contenteditable="true">1</td>
+<td contenteditable="true">100000</td>
+<td contenteditable="true">100000</td>
+</tr>
+
+<tr>
+<td contenteditable="true">Jasa / Barang 2</td>
+<td contenteditable="true">1</td>
+<td contenteditable="true">50000</td>
+<td contenteditable="true">50000</td>
+</tr>
+
+<tr>
+<td contenteditable="true">Jasa / Barang 3</td>
+<td contenteditable="true">1</td>
+<td contenteditable="true">0</td>
+<td contenteditable="true">0</td>
+</tr>
+
+</table>
+</div>
+
+<div class="total">
+<p><b>Subtotal:</b> <span class="edit" contenteditable="true">150000</span></p>
+<p><b>Diskon:</b> <span class="edit" contenteditable="true">0</span></p>
+<p><b>Total Bayar:</b> <span class="edit" contenteditable="true">150000</span></p>
+</div>
+
+<br>
+
+<p>Keterangan:<br>
+<span class="edit" contenteditable="true">Terima kasih atas kerja sama Anda</span></p>
+
+<br>
+
+<div style="text-align:right;">
+[Tempat], <span class="edit" contenteditable="true">Tanggal</span>
+</div>
+
+<br><br>
+
+<div style="text-align:right;">
+Hormat Kami<br><br><br>
+<span class="edit" contenteditable="true">Nama Penjual</span>
+</div>
+
+<button onclick="window.print()">🖨 Print / Save PDF</button>
+
+</div>
+
+</body>
+</html>
