@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Invoice Laundry</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.sub {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.edit {
+    border-bottom: 1px dashed #999;
+    padding: 2px 4px;
+    display: inline-block;
+    min-width: 100px;
+}
+
+/* FLEX */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.col {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* TABLE */
+.table-wrap {
+    overflow-x: auto;
+    margin-top: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background: #e9f0ff;
+}
+
+/* STATUS */
+.status {
+    padding: 5px 8px;
+    border-radius: 5px;
+    background: #fff3cd;
+    display: inline-block;
+}
+
+/* BUTTON */
+button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    max-width: 200px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* PRINT */
+@media print {
+    button {
+        display: none;
+    }
+    body {
+        background: white;
+    }
+    .container {
+        box-shadow: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>INVOICE LAUNDRY</h2>
+<p class="sub">No: <span class="edit" contenteditable="true">INV-LD-001</span></p>
+
+<hr>
+
+<div class="row">
+
+<div class="col">
+<p><b>Laundry</b><br>
+<span class="edit" contenteditable="true">Nama Laundry</span><br>
+<span class="edit" contenteditable="true">Alamat Laundry</span></p>
+</div>
+
+<div class="col">
+<p><b>Pelanggan</b><br>
+<span class="edit" contenteditable="true">Nama Pelanggan</span><br>
+<span class="edit" contenteditable="true">No HP</span></p>
+</div>
+
+</div>
+
+<hr>
+
+<p><b>Status:</b> 
+<span class="status" contenteditable="true">Proses / Selesai / Diambil</span>
+</p>
+
+<div class="table-wrap">
+<table>
+<tr>
+<th>Jenis Cucian</th>
+<th>Qty (kg/item)</th>
+<th>Harga</th>
+<th>Total</th>
+</tr>
+
+<tr>
+<td contenteditable="true">Cuci Kiloan</td>
+<td contenteditable="true">1</td>
+<td contenteditable="true">7000</td>
+<td contenteditable="true">7000</td>
+</tr>
+
+<tr>
+<td contenteditable="true">Setrika</td>
+<td contenteditable="true">1</td>
+<td contenteditable="true">5000</td>
+<td contenteditable="true">5000</td>
+</tr>
+
+<tr>
+<td contenteditable="true">Express</td>
+<td contenteditable="true">0</td>
+<td contenteditable="true">0</td>
+<td contenteditable="true">0</td>
+</tr>
+
+</table>
+</div>
+
+<br>
+
+<p><b>Total Bayar:</b> 
+<span class="edit" contenteditable="true">12000</span>
+</p>
+
+<p>Keterangan:<br>
+<span class="edit" contenteditable="true">Cucian akan selesai sesuai estimasi</span>
+</p>
+
+<br>
+
+<div style="text-align:right;">
+[Tempat], <span class="edit" contenteditable="true">Tanggal</span>
+</div>
+
+<br><br>
+
+<div style="text-align:right;">
+Petugas Laundry<br><br><br>
+<span class="edit" contenteditable="true">Nama Petugas</span>
+</div>
+
+<button onclick="window.print()">🖨 Print / Save PDF</button>
+
+</div>
+
+</body>
+</html>
