@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Form Order Laundry</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background: #f4f4f4;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.sub {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+.edit {
+    border-bottom: 1px dashed #999;
+    padding: 2px 4px;
+    display: inline-block;
+    min-width: 120px;
+}
+
+/* FLEX */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.col {
+    flex: 1;
+    min-width: 250px;
+}
+
+/* BOX */
+.box {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* BUTTON */
+button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    max-width: 200px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* PRINT */
+@media print {
+    button {
+        display: none;
+    }
+    body {
+        background: white;
+    }
+    .container {
+        box-shadow: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>FORM ORDER LAUNDRY</h2>
+<p class="sub">Nomor Order: <span class="edit" contenteditable="true">ORD-001</span></p>
+
+<hr>
+
+<div class="row">
+
+<div class="col box">
+<p><b>Data Pelanggan</b></p>
+
+<p>Nama:<br>
+<span class="edit" contenteditable="true">Nama Pelanggan</span></p>
+
+<p>No HP:<br>
+<span class="edit" contenteditable="true">08xxxxxxxxxx</span></p>
+
+<p>Alamat:<br>
+<span class="edit" contenteditable="true">Alamat pelanggan</span></p>
+</div>
+
+<div class="col box">
+<p><b>Data Laundry</b></p>
+
+<p>Tanggal Masuk:<br>
+<span class="edit" contenteditable="true">22-04-2026</span></p>
+
+<p>Estimasi Selesai:<br>
+<span class="edit" contenteditable="true">2-3 hari</span></p>
+
+<p>Status:<br>
+<span class="edit" contenteditable="true">Diterima / Proses</span></p>
+</div>
+
+</div>
+
+<div class="box">
+
+<p><b>Jenis Layanan</b></p>
+
+<p>☐ Cuci Kiloan</p>
+<p>☐ Setrika</p>
+<p>☐ Cuci + Setrika</p>
+<p>☐ Express</p>
+
+<p>Catatan Tambahan:<br>
+<span class="edit" contenteditable="true">Tidak ada / khusus</span></p>
+
+</div>
+
+<div class="box">
+
+<p><b>Detail Cucian</b></p>
+
+<p>Perkiraan Berat / Item:<br>
+<span class="edit" contenteditable="true">1–5 kg / 10 item</span></p>
+
+<p>Harga Estimasi:<br>
+<span class="edit" contenteditable="true">Rp 10.000</span></p>
+
+</div>
+
+<br>
+
+<div style="text-align:right;">
+[Tempat], <span class="edit" contenteditable="true">Tanggal</span>
+</div>
+
+<br><br>
+
+<div style="text-align:right;">
+Petugas Laundry<br><br><br>
+<span class="edit" contenteditable="true">Nama Petugas</span>
+</div>
+
+<button onclick="window.print()">🖨 Print / Save PDF</button>
+
+</div>
+
+</body>
+</html>
