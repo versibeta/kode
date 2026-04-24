@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investasi Hosting Provider</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Hero -->
+  <section class="text-center py-20 bg-white shadow">
+    <h1 class="text-4xl font-bold mb-4">Peluang Investasi Bisnis Hosting</h1>
+    <p class="text-lg max-w-xl mx-auto">Membangun layanan hosting untuk UMKM Indonesia dengan model bisnis berulang dan scalable.</p>
+    <a href="#invest" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-xl shadow">Lihat Peluang Investasi</a>
+  </section>
+
+  <!-- Problem -->
+  <section class="py-16 max-w-5xl mx-auto px-6">
+    <h2 class="text-2xl font-semibold mb-6">Masalah di Pasar</h2>
+    <ul class="space-y-3">
+      <li>❌ Banyak UMKM belum punya website</li>
+      <li>❌ Hosting sulit dipahami pemula</li>
+      <li>❌ Support teknis sering lambat</li>
+    </ul>
+  </section>
+
+  <!-- Solution -->
+  <section class="py-16 bg-white px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl font-semibold mb-6">Solusi Kami</h2>
+      <ul class="space-y-3">
+        <li>✅ Hosting sederhana & terjangkau</li>
+        <li>✅ Support cepat & personal</li>
+        <li>✅ Paket bundling website + domain</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Business Model -->
+  <section class="py-16 max-w-5xl mx-auto px-6">
+    <h2 class="text-2xl font-semibold mb-6">Model Bisnis</h2>
+    <p class="mb-4">Pendapatan berasal dari hosting tahunan, domain, dan jasa website.</p>
+    <p class="font-semibold">Recurring income (pendapatan berulang) setiap tahun.</p>
+  </section>
+
+  <!-- Projection -->
+  <section class="py-16 bg-white px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl font-semibold mb-6">Proyeksi Pendapatan</h2>
+      <ul class="space-y-3">
+        <li>20 klien = Rp4.000.000 / tahun</li>
+        <li>50 klien = Rp10.000.000 / tahun</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Investment -->
+  <section id="invest" class="py-16 max-w-5xl mx-auto px-6">
+    <h2 class="text-2xl font-semibold mb-6">Kebutuhan Investasi</h2>
+    <p class="text-xl font-bold mb-4">Rp4.000.000</p>
+    <ul class="space-y-2">
+      <li>Infrastruktur hosting</li>
+      <li>Website & domain</li>
+      <li>Marketing</li>
+      <li>Operasional</li>
+    </ul>
+  </section>
+
+  <!-- CTA -->
+  <section class="text-center py-20 bg-blue-600 text-white">
+    <h2 class="text-3xl font-bold mb-4">Mari Bangun Bisnis Ini Bersama</h2>
+    <p class="mb-6">Hubungi kami untuk diskusi lebih lanjut</p>
+    <a href="mailto:emailanda@example.com" class="bg-white text-blue-600 px-6 py-3 rounded-xl">Kontak Kami</a>
+  </section>
+
+</body>
+</html>
 
